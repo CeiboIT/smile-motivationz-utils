@@ -56,9 +56,9 @@ firebaseRef.authWithCustomToken(conf.firebase.secret, function(error) {
                         }
                     });
                 } else {
-                    firebaseRef.child('users').child(userData.uid).set({
+                    firebaseRef.child('users/teachers').child(userData.uid).set({
                         email: optinData.email,
-                        role: 'customer',
+                        role: 'teacher',
                         registered: false
                     }, function(error) {
                         if(!error) {
@@ -79,7 +79,7 @@ firebaseRef.authWithCustomToken(conf.firebase.secret, function(error) {
                         }
 
                         emailClient.messages.sendTemplate({
-                            template_name: conf.mandrill.template,
+                            template_name: conf.mandrill.teachersRegisterTemplate,
                             template_content: {},
                             message: email,
                             async: false

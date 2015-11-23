@@ -2,12 +2,12 @@ module.exports = {
 	firebase :{
 		url: 'https://smile-motivationz.firebaseio.com/',
 		secret: 'gTeosFGJbRPqJxFZMMQiindXOjFb3NZ8gyy3j4u0',
-		queue: 'optins',
+		queue: 'optins/teachers',
 		cleanUp: 'cleanup'
 	},
 	mandrill : {
 		key : 'bnbWeBxHtOxrHmGRnj2mQQ',
-		template : 'smileMotivationz'
+		teachersRegisterTemplate : 'smileMotivationz-teachersRegisterTemplate'
 	},
 	cloudinary: {
         cloud_name: 'ceiboit',

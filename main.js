@@ -100,23 +100,6 @@ firebaseRef.authWithCustomToken(conf.firebase.secret, function(error) {
 
             //Auth Lost
         });
-
-        // New cleanUp Queued
-        firebaseRef.child('jobs').child(conf.firebase.cleanUp).on('child_added', function(cleanUpSnapshot) {
-            var cleanUpId = cleanUpSnapshot.val();
-            var cleanUpLocation = conf.firebase.url + 'jobs/' + conf.firebase.cleanUp + '/' + cleanUpSnapshot.key();
-            cloudinary.uploader.destroy(cleanUpId, function(res) {
-                if (res.result === 'ok') {
-                    var cleanUpref = new Firebase(cleanUpLocation);
-                    cleanUpref.remove(function(error) {
-                        if (error) {
-                           console.log(error);
-                        }
-                    });
-                }
-            });
-        });
-
     }
 });
 
